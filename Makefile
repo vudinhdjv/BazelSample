@@ -23,7 +23,8 @@ kill_xcode:
 	killall Simulator || true
 
 project: kill_xcode
-	$(BAZEL) run //:xcodeproj
+	$(BAZEL) run //App:xcodeproj
+	Open -a Xcode
 
 clean: kill_xcode
 	rm -rf **/*.xcworkspace

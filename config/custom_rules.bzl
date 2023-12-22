@@ -130,5 +130,6 @@ def application(
         resources = resources,
         infoplists = [infoplist],
         minimum_os_version = MINIMUM_OS_VERSION,
+        visibility = ["//visibility:public"],
         deps = deps + [":" + name + "Lib"],
     )
