@@ -82,20 +82,20 @@ def first_party_library(
 
     native.filegroup(
         name = "Resources",
-        srcs = native.glob(["Resources/**/*"]),
+        srcs = native.glob(["App/Resources/**/*"]),
         visibility = ["//visibility:public"],
     )
     
     swift_unit_test(
         name = name,
-        srcs = native.glob(["Tests/**/*.swift"]),
+        srcs = native.glob(["App/Tests/**/*.swift"]),
         deps = test_deps,
     )
 
     swift_library(
         name = name,
         module_name = name,
-        srcs = native.glob(["Sources/**/*.swift"]),
+        srcs = native.glob(["App/Sources/**/*.swift"]),
         deps = deps,
         copts = swift_compiler_flags + swift_library_compiler_flags() + ["-swift-version", swift_version],
         data = [":Resources"],
@@ -119,6 +119,8 @@ def application(
         test_deps = test_deps,
         swift_version = swift_version,
     )
+
+    print('vudvvvvvv', deps)
 
     ios_application(
         name = name,

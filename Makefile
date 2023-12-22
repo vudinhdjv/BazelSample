@@ -23,7 +23,7 @@ kill_xcode:
 	killall Simulator || true
 
 project: kill_xcode
-	scripts/tulsigen config/BazelSample.tulsiproj Develop
+	$(BAZEL) run //:xcodeproj
 
 clean: kill_xcode
 	rm -rf **/*.xcworkspace
